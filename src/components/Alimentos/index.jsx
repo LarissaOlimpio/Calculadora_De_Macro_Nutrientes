@@ -2,19 +2,27 @@ import './Alimentos.css'
 
 const Alimentos =(props) =>{
 
-    const CalculandoOsMacros = (quantidadeConsumida, quantidadeDeMacros) =>{
+    const CalculandoOsMacros = (quantidadeConsumida, quantidadeDeMacros, nomeDoMacro) =>{
+        const macros = (quantidadeDeMacros * quantidadeConsumida) / 100;
+        let calorias = 0
+        if(nomeDoMacro === "gordura"){
+            calorias = macros * 9
+        }else{
+            calorias = macros * 4
+        }
         return(
-            (quantidadeDeMacros * quantidadeConsumida) / 100
+            <p> Este alimento contém {macros} de {nomeDoMacro} e {calorias} calorias</p>
         )
     }
+    
     return(
-        <div className="alimento">
+        <div className="alimento" >
 
             <h4>{props.nome}</h4>
             <h5>Em {props.quantidade} gramas este alimento tem: </h5>
-            <p>{CalculandoOsMacros(props.quantidade,props.proteina)} gramas de proteína </p>
-            <p>{CalculandoOsMacros(props.quantidade,props.carboidrato)} gramas de carboidrato</p>
-            <p>{CalculandoOsMacros(props.quantidade,props.gordura)} gramas de gordura </p>
+            {CalculandoOsMacros(props.quantidade,props.proteina,"proteina")}
+            {CalculandoOsMacros(props.quantidade,props.carboidrato, "carboidrato")}
+            {CalculandoOsMacros(props.quantidade,props.gordura,"gordura")}
           
 
         </div>
