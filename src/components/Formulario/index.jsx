@@ -33,7 +33,7 @@ const Formulario = (props) =>{
     return(
         <section className="formulario">
             <form onSubmit={aoSalvar}>
-                <h1>Calculadora de Macro Nutrientes e calorias dos alimentos</h1>
+                <h1>Calculadora de Macro Nutrientes</h1>
 
                 <h2>Digite abaixo o nome alimento consumido e suas informações nutricionais</h2>
                 <h3> * Utilize a tabela <strong> TACO </strong> como referência para os valores nutricionais </h3>
